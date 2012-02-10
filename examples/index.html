@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jquery Augmentable Form Plugin</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/augForm.js"></script>
+  </head>
+  <body>
+    <h2>Jquery Plugin: AugForm</h2>
+    <p>Info about</p>
+    
+    <h3>Examples</h3>
+    
+    <h3></h3>
+    
+    
+    
+    <ul id="custom-handler-example" class="form-blocks tm40">
+      <li>
+        <table>            
+          <tr>
+            <td><label>Attribute Name: </label></td>
+            <td><input type="text" name="atributes[name][]" value=""/></td>
+          </tr>
+          <tr>
+            <td><label>Attribute Value: </label></td>
+            <td><input type="text" class="w10" name="attributes[value][]" value="" /> %</td>
+          </tr>                        
+          <tr>
+            <td><label>Sort Order: </label></td>
+            <td><input type="text" class="w10" name="attributes[sort_order][]" value=""/></td>
+          </tr>
+        </table>
+        <div class="rm-block">x</div>
+      </li>
+    </ul>
+    <input type="button" id="addBtn" value="Add Block"/>
+    
+    <!-- This is the template for the block to be added -->    
+    <table id="attr-block-tmpl" style="display: none;">            
+      <tr>
+        <td><label>Attribute Name: </label></td>
+        <td><input type="text" name="atributes[name][]" value=""/></td>
+      </tr>
+      <tr>
+        <td><label>Attribute Value: </label></td>
+        <td><input type="text" class="w10" name="attributes[value][]" value="" /> %</td>
+      </tr>                        
+      <tr>
+        <td><label>Sort Order: </label></td>
+        <td><input type="text" class="w10" name="attributes[sort_order][]" value=""/></td>
+      </tr>
+    </table>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#custom-handler-example").augForm({
+                itemElem: 'li',
+                addBtn: '#addBtn',
+                min: 3,
+                tmplHandler: false,
+                onAdd: function () {
+                    $tmpl = $("#attr-block-tmpl").clone();
+                    $tmpl.removeAttr('id').removeAttr('style'); 
+                    $tmpl.find('input').removeAttr('disabled');
+                    $("#custom-handler-example").append($('<li><div class="rm-block">x</div></li>').append($tmpl)); 
+                }
+            });
+        });
+    </script>
+  </body>  
+</html>
