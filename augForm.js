@@ -172,14 +172,14 @@
 
             // on focus and mouseover of itemElem, call function to 
             // show the remove button
-            $(settings.itemElem).live('mouseover focus', function (event) {
+            $(settings.itemElem, this).live('mouseover focus', function (event) {
                 $rmBtn = $(settings.rmBtn, $(this));
                 showRmBtn.call($rmBtn[0])
             });
 
             // on blur and mouseout of itemElem, call function to 
             // hide the remove button
-            $(settings.itemElem).live('mouseout blur', function (event) {
+            $(settings.itemElem, this).live('mouseout blur', function (event) {
                 $rmBtn = $(settings.rmBtn, $(this));
                 hideRmBtn.call($rmBtn[0])
             });
@@ -205,3 +205,4 @@
     }
 
 }) (jQuery);
+
