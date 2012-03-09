@@ -31,13 +31,13 @@ appears on hover. This is because set the option 'min' to 1 ::
             });
 
 Here, 
-    - `itemElem` is the element that will repeat when a new formset is added to the form. Usually,
-      this will be `li` or `td` element.
-    - `addBtn` is the element on click of which the new formset will be added
-    - `min` is the min number of formsets required. It will be used to restrict deletion of formsets 
-    - `tmplHandler` is how adding of formsets will be handled. Two built-in tmplHandlers are 
-       * htmlAsString
-       * djangoFormSet
-    - `onAdd` is a function that will be called after tmplHandler's onAdd is called.
-       Note that it will not overwrite the tmplHandler's onAdd functionality
+  - `itemElem` is the element that will repeat when a new formset is added to the form. Usually,
+    this will be `li` or `td` element.
+  - `addBtn` is the element on click of which the new formset will be added
+  - `min` is the min number of formsets required. It will be used to restrict deletion of formsets 
+  - `tmplHandler` is how adding of formsets will be handled. Two built-in tmplHandlers are 
+     * htmlAsString
+     * djangoFormSet
+  - `onAdd` is a function that will be called after tmplHandler's onAdd is called.
+     Note that it will not overwrite the tmplHandler's onAdd functionality
 
